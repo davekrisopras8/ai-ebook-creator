@@ -16,7 +16,7 @@ const storage = multer.diskStorage({
   filename: function (req, file, cb) {
     cb(
       null,
-      `${file.filename}-${Date.now()}${path.extname(file.originalname)}`
+      `${file.fieldname}-${Date.now()}${path.extname(file.originalname)}`
     );
   },
 });
@@ -25,9 +25,9 @@ const storage = multer.diskStorage({
 function checkFileType(file, cb) {
   const fileTypes = /jpeg|jpg|png|gif/;
   const extname = fileTypes.test(path.extname(file.originalname).toLowerCase());
-  const mimeType = fileTypes.test(file.mimeType);
+  const mimetype = fileTypes.test(file.mimetype);
 
-  if (mimeType && extname) {
+  if (mimetype && extname) {
     return cb(null, true);
   } else {
     cb("Error: Images only");
