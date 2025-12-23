@@ -181,7 +181,7 @@ const CreateBookModal = ({ isOpen, onClose, onBookCreated }) => {
             ]}
           />
 
-          <div className="flex justify-end pt-4 ">
+          <div className="flex justify-end pt-4">
             <Button
               onClick={handleGenerateOutline}
               isLoading={isGeneratingOutline}
@@ -266,22 +266,22 @@ const CreateBookModal = ({ isOpen, onClose, onBookCreated }) => {
               ))
             )}
           </div>
+
+          <div className="flex items-center justify-between pt-4 border-t border-gray-100">
+            <Button variant="ghost" onClick={() => setStep(1)} icon={ArrowLeft}>
+              Back
+            </Button>
+            <div className="flex gap-2">
+              <Button variant="secondary" onClick={handleAddChapter} icon={Plus}>
+                Add Chapter
+              </Button>
+              <Button onClick={handleFinalizeBook} isLoading={isFinalizingBook}>
+                Create eBook
+              </Button>
+            </div>
+          </div>
         </div>
       )}
-
-      <div className="flex items-center justify-between pt-4 border-t border-gray-100">
-        <Button variant="ghost" onClick={() => setStep(1)} icon={ArrowLeft}>
-          Back
-        </Button>
-        <div className="flex gap-2">
-          <Button variant="secondary" onClick={handleAddChapter} icon={Plus}>
-            Add Chapter
-          </Button>
-          <Button onClick={handleFinalizeBook} isLoading={isFinalizingBook}>
-            Create eBook
-          </Button>
-        </div>
-      </div>
     </Modal>
   );
 };
